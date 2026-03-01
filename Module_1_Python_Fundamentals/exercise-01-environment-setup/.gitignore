@@ -1,1 +1,36 @@
+# Virtual Environment
 .venv/
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+
+# Environment files
+.env
+.env.local
+
+# Model files
+*.pt
+*.pth
+*.h5
+*.ckpt
+
+# Data files
+data/*.csv
+data/*.json
+
+# Log files
+*.log
+logs/
+
+# Distribution files
+dist/
+build/
+*.egg-info/
