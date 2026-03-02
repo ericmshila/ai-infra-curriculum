@@ -1,5 +1,6 @@
 # Virtual Environment
 .venv/
+venv-*/
 
 # Python cache files
 __pycache__/
@@ -34,3 +35,6 @@ logs/
 dist/
 build/
 *.egg-info/
+
+#track gitkeep file
+!data/.gitkeep
