@@ -49,3 +49,4 @@ When should you use frozen vs. unpinned requirements?
 - frozen is for total  reproducability while unpinned allows installation of the latest version(when you want flexibility e.g. when building a library)
 
 Never commit .env to Git. Even if you remove the file, it will remain in git history
+

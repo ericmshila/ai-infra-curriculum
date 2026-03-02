@@ -12,25 +12,25 @@ echo "Checking Python version..."
 python3 --version
 
 # Check if virtual environment exists
-if [ -d ".venv" ]; then
+if [ -d "venv" ]; then
     echo "Virtual environment already exists."
     read -p "Recreate it? (y/n) " -n 1 -r
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]; then
         echo "Removing existing virtual environment..."
-        rm -rf .venv
+        rm -rf venv
     fi
 fi
 
 
 if [ ! -d ".venv" ]; then
     echo "Creating virtual environment..."
-    python3.11 -m venv .venv
+    python3.11 -m venv venv
 fi
 
 # Activate virtual environment
 echo "Activating virtual environment..."
-source .venv/bin/activate
+source venv/bin/activate
 
 # Upgrade pip
 echo "Upgrading pip..."
