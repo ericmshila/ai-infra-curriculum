@@ -1,5 +1,5 @@
 # Virtual Environment
-.venv/
+venv/
 venv-*/
 
 # Python cache files
@@ -24,8 +24,8 @@ __pycache__/
 *.ckpt
 
 # Data files
-data/*.csv
-data/*.json
+**/data/*.csv
+**/data/*.json
 
 # Log files
 *.log
@@ -37,4 +37,4 @@ build/
 *.egg-info/
 
 #track gitkeep file
-!data/.gitkeep
+!**/data/.gitkeep
