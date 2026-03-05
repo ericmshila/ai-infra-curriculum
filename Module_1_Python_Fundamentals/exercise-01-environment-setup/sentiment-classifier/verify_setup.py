@@ -6,6 +6,7 @@ verify_setup.py - Verify development environment setup
 import sys
 import subprocess
 from pathlib import Path
+import importlib
 
 def check_python_version():
     """Verify Python version is 3.11"""
@@ -29,12 +30,15 @@ def check_required_packages():
         "mypy"
     ]
     
+    missing_packages = []
+    
     for package in required_packages:
-        print(package)
-
-    # TODO: Try importing each package
-    # Report which are missing
-    pass
+        try:
+            importlib.import_module(package)
+        except ModuleNotFoundError:
+            missing_packages.append(package)
+    if missing_packages:        
+        raise RuntimeError(f"Missing packages: ','.join({missing_packages})")
 
 def check_project_structure():
     """Verify project directories exist"""
