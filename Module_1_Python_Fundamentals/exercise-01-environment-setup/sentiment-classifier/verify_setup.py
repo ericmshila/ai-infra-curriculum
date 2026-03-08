@@ -38,7 +38,7 @@ def check_required_packages():
         except ModuleNotFoundError:
             missing_packages.append(package)
     if missing_packages:        
-        raise RuntimeError(f"Missing packages: ','.join({missing_packages})")
+        raise RuntimeError(f"Missing packages: {', '.join(missing_packages)}")
 
 def check_project_structure():
     """Verify project directories exist"""
@@ -47,7 +47,7 @@ def check_project_structure():
         "tests",
         "data",
         "models",
-        "configs"
+        "configs",
     ]
 
     required_files = [
@@ -56,10 +56,31 @@ def check_project_structure():
         ".gitignore",
         ".env.example"
     ]
+    root = Path(__file__).parent
 
-    # TODO: Check each directory and file exists
-    # Report any missing
-    pass
+    missing_dirs = []
+    missing_files = []
+    
+    for each_dir in required_dirs:
+        path = root/each_dir
+        if not path.is_dir():
+            missing_dirs.append(each_dir)
+            
+    for each_file in required_files:
+        path = root/each_file
+        if not path.is_file():
+            missing_files.append(each_file)
+
+    errors = [] # join the errors in case of any
+    if missing_dirs:
+        errors.append(f"Missing directories: {', '.join(missing_dirs)}")
+        
+    if missing_files:
+        errors.append(f"Missing files: {', '.join(missing_files)}")
+    
+    if errors:
+        raise RuntimeError('\n'.join(errors))
+
 
 def check_git_setup():
     """Verify git configuration"""
