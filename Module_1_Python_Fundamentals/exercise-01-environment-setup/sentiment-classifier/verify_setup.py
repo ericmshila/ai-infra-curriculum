@@ -84,9 +84,20 @@ def check_project_structure():
 
 def check_git_setup():
     """Verify git configuration"""
-    # TODO: Check if .git directory exists
-    # Verify .gitignore includes venv/
-    pass
+    # I am using git to track all modules and exercises so my script checks upwards till it gets to 
+    def check_git_setup():
+
+        current = Path(__file__).parent # parent folder
+        
+        while True:
+            git_folder = current/".git"
+            if git_folder.is_dir():
+                return
+            if current == current.parent:
+                break    
+            current = current.parent
+            
+        raise RuntimeError("git not found. Use git init to initialize")
 
 def main():
     print("Verifying Development Environment Setup")

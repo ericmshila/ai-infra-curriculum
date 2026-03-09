@@ -50,3 +50,9 @@ When should you use frozen vs. unpinned requirements?
 
 Never commit .env to Git. Even if you remove the file, it will remain in git history
 
+
+pathlib does not need string conversion to join directory or file names 
+Path(__file__) will give you the full path to your script
+Path(__file__).parent will give you the parent folder 
+
+
