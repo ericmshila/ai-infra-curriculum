@@ -46,8 +46,16 @@ if "img_0003.jpg" in training_images:
 batch_size = 4
 batch_1 = training_images[0:batch_size]
 batch_2 = training_images[batch_size:batch_size*2]
+batch_3 = training_images[batch_size*2:batch_size*3]
+batch_4 = training_images[batch_size*3:batch_size*4]
+batch_5 = training_images[batch_size*4:batch_size*5]
+
 print(f"Batch 1: {batch_1}")
 print(f"Batch 2: {batch_2}")
+print(f"Batch 3: {batch_3}")
+print(f"Batch 4: {batch_4}")
+print(f"Batch 5: {batch_5}")
+
 
 # Reverse and sort
 training_images_sorted = sorted(training_images)
