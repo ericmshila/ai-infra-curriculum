@@ -56,6 +56,11 @@ print(f"Batch 3: {batch_3}")
 print(f"Batch 4: {batch_4}")
 print(f"Batch 5: {batch_5}")
 
+#Find all images with "000" in their name
+
+images_with_000 = [i for i in training_images if '000' in i]
+print(f'images with "000" in them: {images_with_000}')
+
 
 # Reverse and sort
 training_images_sorted = sorted(training_images)
