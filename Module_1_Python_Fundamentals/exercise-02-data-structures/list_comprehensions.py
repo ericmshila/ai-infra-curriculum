@@ -46,6 +46,16 @@ accuracies = [float(f.split("_acc_")[1].replace(".h5", ""))
               for f in model_files]
 print(f"Accuracies: {accuracies}")
 
+# Models with Accuracies over 0.90 
+
+# for mdl,acc in zip(model_files, accuracies):
+#     print(mdl,acc)
+
+mdl_ovr_zeroptnine =[mdl for mdl,acc in zip(model_files, accuracies) if acc > 0.90]
+
+print(f'Models with Accuracies over 0.90: {mdl_ovr_zeroptnine} ')
+        
+
 
 # Find best model
 best_idx = accuracies.index(max(accuracies))
@@ -54,7 +64,7 @@ print(f"Best model: {best_model} (acc: {max(accuracies)})")
 
 
 
-# Conditional list building
+# Conditional list buildin
 training_config = {
     "epochs": 100,
     "batch_size": 32,
